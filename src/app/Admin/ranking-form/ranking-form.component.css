@@ -1,0 +1,53 @@
+.ranking-form {
+    background-color: #303D57;
+    padding: 2rem;
+    border-radius: 10px;
+    outline: 4px solid #1F242D;
+    color: #ffffff;
+}
+
+.ranking-form h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: #212C39;
+    color: #9A9797;
+    font-size: 1rem;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #303D57;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #212C39;
+    color: #ffffff;
+}

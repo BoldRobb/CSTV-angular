@@ -1,0 +1,28 @@
+.news-table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-top: 1rem;
+
+  }
+  
+  .news-table th, .news-table td {
+    border: 1px solid #1F242D;
+    padding: 0.5rem;
+    text-align: left;
+    color: white;
+  }
+  
+  
+  .news-table tr {
+    cursor: pointer;
+  }
+  
+  .news-table tr:hover {
+    background-color: rgb(26, 35, 53);
+  }
+  h2{
+    color: #979797;
+    margin-top: 10px;
+    margin-bottom: 0;
+}

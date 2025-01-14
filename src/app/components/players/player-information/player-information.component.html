@@ -1,0 +1,51 @@
+<h2>Player information</h2>
+<hr>
+<div class="statistics-container">
+    <div class="statistics-column">
+      <h3>Player Statistics</h3>
+      <table *ngIf="stats.length > 0">
+        <tbody>
+          <tr>
+            <th>Average kills</th>
+            <td>{{ getAverageKills() }}</td>
+          </tr>
+          <tr>
+            <th>Average Deaths</th>
+            <td>{{ getAverageDeaths() }}</td>
+          </tr>
+          <tr>
+            <th>Average KD</th>
+            <td>{{ getAverageKD() }}</td>
+          </tr>
+          <tr>
+            <th>Average ADR</th>
+            <td>{{ getAverageADR() }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p *ngIf="stats.length === 0">No statistics available</p>
+    </div>
+  
+    <div class="matches-column">
+      <h3>Matches</h3>
+      <table *ngIf="matches.length > 0">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Opponent</th>
+            <th>Result</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let match of matches">
+            <td>{{ match.fecha | date }}</td>
+            <td>{{ match.equipo2.nombre }}</td>
+            <td>{{ match.marcador }}</td>
+            <td><a [routerLink]="['/match', match.id]">View Match</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <p *ngIf="matches.length === 0">No matches available</p>
+    </div>
+  </div>

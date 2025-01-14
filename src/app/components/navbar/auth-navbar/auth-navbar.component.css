@@ -1,0 +1,119 @@
+.navbar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: #303D57;
+  outline: 4px solid #1F242D;
+}
+
+.individualBox {
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 0 ;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-size: 32px;
+  text-align: center;
+  outline-color: #1F242D;
+  margin: 0;
+  outline: 1px solid #1F242D;
+}
+
+.individualBox:hover {
+  background-color: #1F242D;
+  cursor: pointer;
+}
+
+
+input {
+  background-color: #212C39;
+  font-size: 16px;
+  padding: 0.5rem;
+  border-radius: 10px;
+  color: #9A9797;
+  outline-color: #212C39;
+  border: none;
+  outline: none;
+  margin: 0 0.5rem 0 0;
+}
+
+.searchIcon {
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #212C39;
+}
+
+button {
+  height: 1.5rem;
+  width: 1.5rem;
+  border: none;
+  align-items: center;
+  padding: 0;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.searchBar {
+  position: relative;
+}
+.login-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.searchBar input {
+  padding: 0.5rem;
+  width: 200px;
+  margin: 10px;
+}
+
+.searchBar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.searchIcon {
+  width: 25px;
+  height: 25px;
+}
+
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #182234;
+  border: 1px solid #1F242D;
+  color: #979797;
+  z-index: 1000;
+}
+
+.search-results ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.search-results li {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.search-results li:hover {
+  background-color: #212C39;
+}

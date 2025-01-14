@@ -1,0 +1,28 @@
+<h2>Match results</h2>
+<div class="map-buttons">
+  <button *ngFor="let mapa of mapas" (click)="selectMap(mapa.id)">{{ mapa.mapa }}</button>
+  <button (click)="selectMap('all')">All Maps</button>
+</div>
+<h3>Stats for {{getSelectedMapName()}}</h3>
+<div></div>
+<table *ngIf="mapas.length > 0">
+  <thead>
+    <tr>
+      <th>Player</th>
+      <th>Kills</th>
+      <th>Deaths</th>
+      <th>KD</th>
+      <th>ADR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let jugador of jugadores">
+      <td class="player-name">{{ jugador.mote }}</td>
+      <td>{{ getSelectedStats(jugador.id)?.asesinatos || 'No stats available' }}</td>
+      <td>{{ getSelectedStats(jugador.id)?.muertes || 'No stats available' }}</td>
+      <td>{{ getSelectedStats(jugador.id)?.kd || 'No stats available' }}</td>
+      <td>{{ getSelectedStats(jugador.id)?.adr || 'No stats available' }}</td>
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="mapas.length === 0">No maps available</p>

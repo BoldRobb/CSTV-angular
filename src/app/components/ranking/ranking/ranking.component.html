@@ -1,0 +1,15 @@
+<div class="grid-container">
+
+    <div class="rankingHolder">
+        <h2>Ranking at {{hoy}}</h2>
+        <div *ngFor="let ranking of ranking" class="ranking-item" [routerLink]="['/team/', ranking.equipo.id]">
+          <span class="ranking-position">{{ ranking.ranking }}</span>
+          <img [src]="ranking.equipo.foto || 'icons/defaultTeam.png'" alt="{{ ranking.equipo.nombre }} logo" class="team-logo">
+          <span class="team-name">{{ ranking.equipo.nombre }}</span>
+          <span class="team-points">{{ ranking.puntos }}</span>
+        </div>
+      </div>
+    <div class="recentActivity">
+     <app-recent-activity></app-recent-activity>
+    </div>
+</div>

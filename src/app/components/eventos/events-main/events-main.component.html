@@ -1,0 +1,30 @@
+<div class="grid-container">
+
+    <div class="eventsContainer">
+        <div class="torneoMain-container">
+            <a [routerLink]="'/events/' + (torneoMain?.id || 0)"><img src="{{torneoMain?.logo}}" alt="{{torneoMain?.nombre}}" class="imgMain"></a>
+            <div class="noticia-title">{{ torneoMain?.nombre }}</div>
+        </div>
+        
+
+        <div *ngIf="torneosActuales.length > 0">
+            <p class="eventTitle">Ongoing events</p>
+            <app-event-container *ngFor="let torneo of torneosActuales" [id]="torneo.id"></app-event-container>
+        </div>
+    
+        <div *ngIf="torneosProximos.length > 0">
+            <p class="eventTitle">Upcoming events</p>
+            <app-event-container *ngFor="let torneo of torneosProximos" [id]="torneo.id"></app-event-container>
+        </div>
+    
+        <div *ngIf="torneosTerminados.length > 0">
+            <p class="eventTitle">Ended events</p>
+            <app-event-container *ngFor="let torneo of torneosTerminados" [id]="torneo.id"></app-event-container>
+        </div>
+    </div>
+
+
+    <div class="recentActivity">
+     <app-recent-activity></app-recent-activity>
+    </div>
+</div>

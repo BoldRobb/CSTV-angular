@@ -1,0 +1,9 @@
+<div class="simple-container">
+    <img src="https://purecatamphetamine.github.io/country-flag-icons/3x2/{{torneo.localizacion}}.svg" alt="{{torneo.localizacion}}" class="countryFlag">
+    <a [routerLink]="['/events/',torneo.id]" class="event-title" routerLinkActive="active">{{torneo.nombre}}</a>
+    <p class="event-date">{{torneo.fechaInicial | date: 'dd/MM/yyyy'}} - {{torneo.fechaFinal | date: 'dd/MM/yyyy'}}</p>
+    <p class="event-teams">{{torneo.equipos_cant}} Teams</p>
+    <p class="event-prizepool">${{torneo.prizepool}} prizepool</p>
+    <p class="event-tipe">{{torneo.tipo}}</p>
+
+</div>

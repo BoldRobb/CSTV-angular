@@ -1,0 +1,68 @@
+.responder-form{
+    background-color: #212C39;
+    margin-bottom: 1rem;
+    padding: 10px 20px;
+
+    
+}
+.forum-children {
+    margin-left: 30px;
+    border-left: 4px solid #9A9797;
+    padding-left: 20px;
+    background-color: none;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+  
+  label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: 24px;
+  }
+  
+  textarea {
+    width: 95%;
+    padding: 0.5rem;
+    border-radius: 0px;
+    border: 1px solid #ccc;
+    resize: none;
+    color: white;
+    background-color: #212C39;
+    font-size: 16px;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    background-color: #212C39;
+    color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    
+  }
+  
+  button:disabled {
+    cursor: not-allowed;
+  }
+  
+  button:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+  .char-counter {
+    color: white;
+    font-size: 20px;
+}
+.char-counter-exceed {
+    color: red;
+    font-size: 20px;
+}

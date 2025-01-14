@@ -1,0 +1,48 @@
+<div class="team-stats">
+    <h2>Team stats for Player</h2>
+    <hr>
+    <div class="stats-summary">
+      <div class="stat-item">
+        <h3>{{ totalTeams }}</h3>
+        <p>Teams</p>
+      </div>
+      <div class="stat-item">
+        <h3>{{ daysInCurrentTeam }}</h3>
+        <p>Days in current team</p>
+      </div>
+      <div class="stat-item">
+        <h3>{{ totalDaysInTeams }}</h3>
+        <p>Days in teams</p>
+      </div>
+    </div>
+  
+    <h3>Breakdown of teams</h3>
+    <hr>
+    <table class="team-history-table">
+      <thead>
+        <tr>
+          <th>Time period</th>
+          <th>Team</th>
+          <th>Stats</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of teamHistory">
+          <td>
+            {{ team.fechaInicio | date: 'MMM yyyy' }} - 
+            {{ team.fechaFinal ? (team.fechaFinal | date: 'MMM yyyy') : 'Present' }}
+          </td>
+          <td>
+            <img [src]="team.idEquipo.foto" alt="{{ team.idEquipo.nombre }}" class="team-logo" />
+            {{ team.idEquipo.nombre }}
+          </td>
+
+          <td>
+            <button class="stats-button">Stats</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

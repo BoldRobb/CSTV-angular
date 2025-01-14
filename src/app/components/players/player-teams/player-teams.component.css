@@ -1,0 +1,68 @@
+.team-stats {
+    margin: 20px;
+    color: #979797;
+    
+    margin: 0 auto;
+  }
+  h2{
+    color: #979797;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+  .stats-summary {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    border: 1px solid #212C39;
+    margin: 0 auto;
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-item h3 {
+    font-size: 2rem;
+    margin: 0;
+    color: #979797;
+  }
+  
+  .stat-item p {
+    font-size: 1rem;
+    margin: 0;
+    color: #ccc;
+  }
+  
+  .team-history-table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 0 auto;
+  }
+
+  .team-history-table th, .team-history-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .team-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  
+  .stats-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .stats-button:hover {
+    background-color: #0056b3;
+  }
+  

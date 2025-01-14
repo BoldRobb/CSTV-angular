@@ -1,0 +1,254 @@
+.content {
+    padding: 1rem;
+  }
+  
+  .content {
+    padding: 1rem;
+  }
+  
+  h2 {
+    color: #979797;
+    margin-bottom: 1rem;
+    font-weight: semi-bold;
+    font-size: 40px;
+  }
+
+  .teams-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    gap: 1rem;
+  }
+  
+  .team-cell {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+    height: 150px;
+    background-color: #1F242D;
+    color: #9A9797;
+  }
+  .team-cell a{
+    color: #9A9797;
+    text-decoration: none;
+  }
+  
+  .ranking {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: #303D57;
+    color: #979797;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  .prize-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  
+  .prize-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+    height: auto;
+    background-color: #1F242D;
+    color: #9A9797;
+  }
+  
+  .position {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  .prize-cell a{
+    color: #9A9797;
+    text-decoration: none;
+  }
+  .team-photo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .prize {
+    font-weight: bold;
+  }
+  .news-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .news-table th, .news-table td {
+    border: 1px solid #1F242D;
+    padding: 0.5rem;
+    text-align: left;
+    color: white;
+  }
+  
+  
+  .news-table tr {
+    cursor: pointer;
+  }
+  
+  .news-table tr:hover {
+    background-color: rgb(26, 35, 53);
+  }
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .spinner {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .brackets-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .ronda {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 2rem;
+    color: #979797;
+    
+  }
+.rondaTitle{
+  min-height: 2rem;
+  font-size: 26px;
+}
+.rondaimgs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: 30px;
+}
+  .rondaimgs:nth-child(2){
+    padding: 1rem 0;
+  }
+  .partido {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px;
+    border: 2px solid #979797;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #182234;
+  }
+  
+  .equipo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #212C39;
+  }
+  
+  .equipo img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+  
+  .equipo span {
+    flex: 1;
+    margin-left: 10px;
+    font-size: 14px;
+    color: #fff;
+
+  }
+  .equipo span:hover{
+    cursor: pointer;
+  }
+  
+  .equipo .score {
+    font-weight: bold;
+    margin-left: 5px;
+  }
+  
+  .equipo.ganador {
+    background-color: #28a745;
+  }
+  
+  .equipo-local {
+    border-bottom: 1px solid #666;
+  }
+  
+  .equipo-visitante {
+    border-top: 1px solid #666;
+  }
+  .league-standings-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: white;
+  }
+  
+  .tablaTorneo {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+  }
+  .tablaTorneo img{
+    width: 24px;
+    height: 24px;
+  }
+  
+  .tablaTorneo th,
+  .tablaTorneo td {
+    border: 1px solid #979797;
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  .tablaTorneo th {
+    font-weight: bold;
+    color: white;
+    font-size: 24px;
+  }
+
+  .tablaTorneo td {
+    color: #979797;
+    font-size: 20px;
+  }

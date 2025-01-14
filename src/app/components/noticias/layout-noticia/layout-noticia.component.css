@@ -1,0 +1,17 @@
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    width: 100%;
+}
+.noticiasHome {
+    display: flex;
+    justify-content: end;
+    margin-right: 4%;
+}
+.recentActivity {
+    display: flex;
+    margin-top: 2rem;
+    margin-left: 10%;
+}

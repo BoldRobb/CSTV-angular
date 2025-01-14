@@ -1,0 +1,41 @@
+<h2>Ranking history</h2>
+<hr>
+<div class="ranking-summary">
+  <div class="left">
+    <p><strong>Current Ranking:</strong></p>
+  <p>#{{ equipo?.rankingActual }}</p>
+  </div>
+  <div class ="right">
+    <p><strong>Peak Ranking:</strong></p>
+    <p>#{{ getPeakRanking() }}</p>
+  </div>
+</div>
+<hr>
+<div class="graph">
+    <canvas baseChart
+    [data]="lineChartData"
+    [options]="lineChartOptions"
+    [type]="lineChartType">
+    </canvas>
+  </div>
+
+<h2> FAQ </h2>
+<div class="faq">
+  <div class = "question">
+  <h3>Who plays for {{ equipo?.nombre }}?</h3>
+  <p>
+    The players are:
+    <ul>
+      <li *ngFor="let jugador of jugadores">{{jugador.nombreReal}} "{{ jugador.mote }}"</li>
+    </ul>
+  <p>
+  </div>
+  <div class = "question">
+  <h3>What is his world ranking?</h3>
+  <p>The current ranking is: {{ equipo?.rankingActual === 0 ? '?' : equipo?.rankingActual }}</p>
+</div>
+<div class = "question">
+  <h3>What tournaments has {{ equipo?.nombre }} played?</h3>
+  <p>WIP</p>
+</div>
+</div>

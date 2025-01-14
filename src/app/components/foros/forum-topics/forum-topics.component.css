@@ -1,0 +1,152 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    width: 100%;
+}
+.forums-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #182234;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    width: 60rem;
+    margin-right: 4%;
+}
+.recentActivity {
+    display: flex;
+    margin-top: 2rem;
+    margin-left: 10%;
+}
+.holder1 {
+    margin-top: 10px;
+    background-color: #303D57;
+    padding: 10px;
+    width: 55rem;
+    margin-bottom:2rem;
+}
+h1{
+    color: white;
+    margin: 0 0 0 1rem;
+}
+h2{
+    margin: 0px;
+    margin-left: 10px;
+    color: white;
+}
+hr{
+    border: 2px solid White;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.tablaForos {
+    width: 95%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.elementosTabla{
+    width: 100%;
+}
+.linkForos{
+color: white;
+text-decoration: none;
+font-size: 24px;
+margin: 0;
+}
+.linkForos:hover{
+    color: #1B68DD;
+}
+.descForos{
+    margin: 0;
+    color: #9A9797;
+    font-size: 16px;
+    margin-left: 2rem;
+    margin-bottom: 5px;
+}
+.reglas{
+    font-size: 24px;
+    color: #9A9797;
+}
+.new-topic{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+input.form-control{
+    font-size: 24px;
+}
+textarea.form-control{
+    font-size: 16px;
+}
+input.form-control, textarea.form-control {
+    background-color: #1F242D;
+    width: 95%;
+    color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+}
+.btn-primary {
+    float: right;
+    position: relative;
+    align-items: end;
+   font-size: 16px;
+   background-color: #1F242D;
+   color: white;
+   border-radius: 10px;
+   width: 5rem;
+   height: 1.9rem;
+   border: 1px solid #ccc;
+}
+.btn-primary:disabled {
+    cursor: not-allowed;
+  }
+.btn-primary:hover:not(:disabled) {
+    background-color: #1B68DD;
+    color: white;
+    cursor: pointer;
+}
+
+.char-counter {
+    color: white;
+    font-size: 20px;
+}
+.char-counter-exceed {
+    color: red;
+    font-size: 20px;
+}
+.topics-table{
+    width: 100%;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.topics-table th{
+    color: #9A9797;
+    font-size: 24px;
+    text-align: left;
+    background-color: #212C39;
+}
+.topics-table td{
+    color: #9A9797;
+    font-size: 20px;
+    text-align: left;
+}
+
+.notLoggedText{
+    color: #9A9797;
+    font-size: 24px;
+    margin-top: 1rem;
+}
+.error{
+    color: red;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

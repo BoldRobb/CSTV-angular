@@ -1,0 +1,36 @@
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    color: #979797;
+  }
+  
+  th, td {
+    border: 1px solid #212C39;
+    padding: 0.5rem;
+    text-align: left;
+  }
+  
+  .event-logo {
+    width: 100px;
+  }
+  .countryFlag{
+    width: 50px;
+  }
+  h2{
+    color: #979797;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+p{
+    color: #979797;
+    margin-top: 0;
+}
+a{
+    color:#979797;
+    text-decoration: none;
+}
+a:hover{
+    color: white;
+}

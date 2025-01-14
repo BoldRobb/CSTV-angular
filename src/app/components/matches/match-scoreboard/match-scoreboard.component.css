@@ -1,0 +1,48 @@
+.map-buttons {
+    margin-bottom: 1rem;
+  }
+  
+  .map-buttons button {
+    margin-right: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #1F242D;
+    font-size: 24px;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .map-buttons button:hover {
+    background-color: #1B68DD;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    color: #979797;
+  }
+  
+  th, td {
+    border: 1px solid #021050;
+    padding: 0.5rem;
+    text-align: left;
+  }
+  
+  th {
+    color: white;
+  }
+  
+  
+  p {
+    margin: 0.2rem 0;
+  }
+  
+  .no-stats {
+    color: #ff0000;
+  }
+  
+  .player-name {
+    font-weight: bold;
+    color: #ffffff;
+  }

@@ -1,0 +1,42 @@
+<h2>Upcoming Events</h2>
+<hr>
+<table *ngIf="upcomingEvents.length > 0">
+  <thead>
+    <tr>
+      <th>Logo</th>
+      <th>Event Name</th>
+      <th>Location</th>
+      <th>Position</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let evento of upcomingEvents">
+      <td><img [src]="evento.idTorneo.logo" alt="{{ evento.idTorneo.nombre }} logo" class="event-logo"></td>
+      <td><a [routerLink]="['/events', evento.idTorneo.id]">{{ evento.idTorneo.nombre }}</a></td>
+      <td><img src="https://purecatamphetamine.github.io/country-flag-icons/3x2/{{evento.idTorneo.localizacion}}.svg" alt="{{evento.idTorneo.localizacion}}" class="countryFlag"></td>
+      <td>{{ formatPosition(evento.posicion) }}</td>
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="upcomingEvents.length === 0">No upcoming events</p>
+
+<h2>Ended Events</h2>
+<table *ngIf="endedEvents.length > 0">
+  <thead>
+    <tr>
+      <th>Logo</th>
+      <th>Event Name</th>
+      <th>Location</th>
+      <th>Position</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let evento of endedEvents">
+      <td><img [src]="evento.idTorneo.logo" alt="{{ evento.idTorneo.nombre }} logo" class="event-logo"></td>
+      <td><a [routerLink]="['/events', evento.idTorneo.id]">{{ evento.idTorneo.nombre }}</a></td>
+      <td><img src="https://purecatamphetamine.github.io/country-flag-icons/3x2/{{evento.idTorneo.localizacion}}.svg" alt="{{evento.idTorneo.localizacion}}" class="countryFlag"></td>
+      <td>{{ formatPosition(evento.posicion) }}</td>
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="endedEvents.length === 0">No ended events</p>

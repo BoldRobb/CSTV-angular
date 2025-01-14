@@ -1,0 +1,89 @@
+<app-alert [message]="alertMessage" [type]="alertType"></app-alert>
+
+<div class="torneo-form">
+  <h1>{{ isEditing ? 'Editar Torneo' : 'Agregar Nuevo Torneo' }}</h1>
+  <div class="button-group">
+    <button (click)="showAddForm()">Agregar</button>
+    <button (click)="showEditForm()">Editar</button>
+    <button *ngIf="isEditing && currentTorneo" (click)="deleteTorneo()">Eliminar</button>
+  </div>
+  <div *ngIf="showForm">
+    <form [formGroup]="torneoForm" (ngSubmit)="onSubmit()" class="form-grid">
+      <div class="form-column">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" formControlName="nombre" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="fechaInicial">Fecha Inicial:</label>
+          <input type="date" id="fechaInicial" formControlName="fechaInicial" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="fechaFinal">Fecha Final:</label>
+          <input type="date" id="fechaFinal" formControlName="fechaFinal" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="logo">Logo:</label>
+          <input type="text" id="logo" formControlName="logo" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="tipoBracket">Tipo de Bracket:</label>
+          <select id="tipoBracket" formControlName="tipoBracket" class="form-control" required>
+            <option value="SE">SE</option>
+            <option value="LigaSE">LigaSE</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-column">
+        <div class="form-group">
+          <label for="prizepool">Prizepool:</label>
+          <input type="number" id="prizepool" formControlName="prizepool" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="equipos_cant">Cantidad de Equipos:</label>
+          <input type="number" id="equipos_cant" formControlName="equipos_cant" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="localizacion">Localización:</label>
+          <select id="localizacion" formControlName="localizacion" class="form-control custom-select" required>
+            <option *ngFor="let country of countries" [value]="country.code">{{ country.name }}</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">{{ isEditing ? 'Actualizar' : 'Guardar' }}</button>
+      </div>
+    </form>
+    <div *ngIf="isEditing && equipos.length > 0">
+      <h3>Equipos del Torneo</h3>
+      <ul>
+        <li *ngFor="let equipo of equipos">
+          {{ equipo.nombre }}
+          <button (click)="removeEquipo(equipo.id)">Eliminar</button>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="isEditing">
+      <div class="form-group">
+        <label for="searchEquipo">Buscar Equipo por Nombre:</label>
+        <input type="text" id="searchEquipo" [(ngModel)]="searchEquipoQuery" (input)="searchEquipos()" class="form-control">
+      </div>
+      <ul *ngIf="searchEquipoResults.length >= 0">
+        <li *ngFor="let equipo of searchEquipoResults" (click)="addEquipo(equipo)">
+          {{ equipo.nombre }}
+        </li>
+      </ul>
+      <p *ngIf="searchEquipoResults.length === 0 && searchEquipoQuery">No se encontraron resultados</p>
+    </div>
+  </div>
+  <div *ngIf="isEditing && !showForm">
+    <div class="form-group">
+      <label for="search">Buscar Torneo por Nombre:</label>
+      <input type="text" id="search" [(ngModel)]="searchQuery" (input)="searchTorneos()" class="form-control">
+    </div>
+    <ul *ngIf="searchResults.length > 0">
+      <li *ngFor="let torneo of searchResults" (click)="selectTorneo(torneo)">
+        {{ torneo.nombre }}
+      </li>
+    </ul>
+    <p *ngIf="searchResults.length === 0 && searchQuery">No se encontraron resultados</p>
+  </div>
+</div>

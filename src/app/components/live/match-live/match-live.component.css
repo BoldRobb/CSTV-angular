@@ -1,0 +1,305 @@
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .spinner {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #212C39;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    width: 100%;
+  }
+  .recentActivity {
+    display: flex;
+    margin-top: 2rem;
+    margin-left: 10%;
+  }
+  
+  .eventbg{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #182234;
+    color: #9A9797;
+    margin-left: auto;
+    width: 60rem;
+    margin-right: 5%;
+  }
+  .eventHolder{
+    margin-top: 10px;
+    background-color: #303D57;
+    width: 100%;
+    margin-bottom:2rem;
+  }
+  .match-container {
+    width: 95%;
+    margin: 0 auto;
+    background-color: #303D57;
+    color: #979797;
+    padding: 20px;
+  }
+  .resultHolder{
+    width: 95%;
+    margin: 0 auto;
+    background-color: #303D57;
+    color: #979797;
+    padding: 20px;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #303D57;
+  }
+  
+  .team-logo img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+  }
+  
+  .match-info {
+    text-align: center;
+  }
+  
+  .match-info h2,
+  .match-info h3 {
+    margin-bottom: 0;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: #979797;
+  }
+  .match-text{
+    font-size: 26px;
+    margin-top: 20px;
+  }
+  .teams {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-size: 32px;
+    font-weight: bold;
+  }
+  
+  .maps {
+    margin-top: 20px;
+    background-color: #303D57;
+    padding: 10px;
+    margin-bottom: 1rem;
+  }
+  
+  .maps h4 {
+    font-size: 32px;
+    margin: 10px;
+  }
+  
+  .maps ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .maps li {
+    margin-bottom: 0.5rem;
+    color: #979797;
+  }
+  
+  .lineups {
+    margin-top: 20px;
+  }
+  
+  .lineups h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .team-lineup {
+    margin-bottom: 20px;
+    background-color: #303D57;
+    padding: 10px;
+  }
+  .team-lineup h3{
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  .team-info {
+    width: 80%;
+    font-size: 26px;
+  }
+  
+  .players {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 10px 50px;
+  }
+  
+  .player {
+    text-align: center;
+  }
+  
+  .imgPlayer {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 5px;
+  }
+  .player-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .countryFlag {
+    width: 24px;
+    height: 16px;
+    margin-right: 0.5rem;
+  }
+  a{
+    color: #9A9797;
+    text-decoration: none;
+    font-size: 32px;
+  }
+  a hover{
+    color: white;
+  }
+  .lineupHolder{
+    margin-top: 10px;
+    background-color: #303D57;
+    width: 100%;
+    margin-bottom:2rem;
+  }
+  .BanlistText{
+    background-color: #212C39;
+    margin: 10px;
+    padding: 10px;
+    width: 30%;
+    font-size: 24px;
+  }
+  .BanlistText ul {
+    padding: 0;
+  }
+  
+  .BanlistText li {
+    margin-bottom: 0.5rem;
+  }
+  .BanlistImages ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .BanlistImages li {
+    list-style-type: none;
+    margin-bottom: 0.5rem;
+  }
+
+  .map-container {
+    position: relative;
+    display: inline-block;
+  }
+  .map-banner{
+    height: 40px;
+    width: 28rem;
+    object-fit: cover;
+
+  }
+  .map-status {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px black;
+  }
+  .banned {
+    color: red;
+  }
+  
+  .picked {
+    color: green;
+  }
+  .banlist-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .BanlistText, .BanlistImages {
+    width: 48%;
+  }
+  .mapFoto{
+    width: 100%;
+  }
+.map-result-banner{
+  width: 80%;
+  max-height: 40px;
+  object-fit:cover;
+  align-items: center;
+  margin: 0 auto;
+}
+.result-logo {
+  width: 32px;
+  height: 32px;
+}
+.mapaResult {
+  margin-bottom: 1rem;
+}
+
+
+
+.map-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.team-info {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.result-logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 0.5rem;
+}
+
+.score-info {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+.izq {
+  margin-left: 0.5rem; /* Add margin to the left to create space */
+}
+
+.der {
+  margin-right: 0.5rem; /* Add margin to the left to create space */
+}
+.resultTextBG{
+  background-color: #212C39;
+  width: 100%;
+  padding: 10px;
+  font-size: 24px;
+}
+.noseAyuda{
+  display: flex;
+  position: relative;
+  width: 100%;
+}

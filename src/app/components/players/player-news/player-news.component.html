@@ -1,0 +1,10 @@
+<h2>Related news</h2>
+<hr>
+    <table class="news-table">
+      <tbody>
+        <tr *ngFor="let noticia of noticias" (click)="navigateToNoticia(noticia.id)">
+          <td>{{ noticia.titulo }}</td>
+          <td>{{ noticia.usuario.username }}</td>
+        </tr>
+      </tbody>
+    </table>

@@ -1,0 +1,47 @@
+.topicos{
+    display: grid; 
+    grid-template-columns: 1fr; 
+    align-items: flex;
+}
+.container{
+    display: grid; 
+    grid-template-columns: 1fr;
+    background-color: #303D57;
+    width: 15rem;
+    height: auto;
+    max-height: 50rem;
+    outline: #1F242D solid 2px;
+}
+.title{
+    font-size: 18px;
+    color: white;
+    margin: 0;
+    padding: 0px 4px 4px 4px;
+}
+.topicoTitle{
+    color: #9A9797;
+    font-size: 16px;
+    margin: 0;
+    margin-top: 1px;
+    padding: 10px;
+    outline: #1F242D solid 1px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 15rem;
+}
+.topicoTitle:hover{
+    color: white;
+    cursor: pointer;
+}
+.main{
+    outline: rgba(255, 255, 255, 0.1) solid 1px;
+    padding: 5px;
+    width: auto;
+    height: auto;
+    border-radius: 4px;
+}

@@ -1,0 +1,101 @@
+<app-alert [message]="alertMessage" [type]="alertType"></app-alert>
+<div *ngIf="isLoading" class="spinner-container">
+  <div class="spinner"></div>
+</div>
+<div *ngIf="!isLoading && !pageNotFound; else error" class="forum-container">
+  
+    <div class="forum-item">
+      <div class="forumbg">
+      <div class="forum-header">
+        <div class="forum-header-left">
+          {{ topico?.titulo }}
+        </div>
+        <div class="forum-header-right">
+          <img src='https://purecatamphetamine.github.io/country-flag-icons/3x2/{{topico?.usuario?.pais}}.svg' alt="{{topico?.usuario?.pais}}" class="imgBandera">
+          <a [routerLink]="['/profile/',topico?.usuario?.id]" class="link">{{ topico?.usuario?.username }}</a>
+        </div>
+      </div>
+      <hr class="divisoria">
+      <div class="forum-body">
+        {{topico?.descripcion}}
+      </div>
+      <hr class="divisoria">
+      <div class="forum-footer">
+        <div class="forum-footer-left">
+            <a *ngIf="isLoggedIn" (click)="toggleResponderForm()" class="responder">Responder</a>
+        </div>
+        <div class="forum-footer-right">
+          {{ normalizeDate(topico?.fecha) }}
+        </div>
+      </div>
+    </div>
+
+
+
+      <!-- Subrespuesta -->
+      <div *ngFor="let respuesta of respuestas"  class="forum-children">
+        <div *ngIf="respuesta.respuestaPadre==null" >
+          <div class ="forumbg">
+            <div class="header-respuesta">
+              <img src='https://purecatamphetamine.github.io/country-flag-icons/3x2/{{respuesta.usuario.pais}}.svg' alt="{{respuesta.usuario.pais}}" class="imgBandera">
+            <a [routerLink]="['/profile/',respuesta.usuario.id]" class="link">{{respuesta.usuario.username }}</a>
+            </div>
+          
+          <hr class="divisoria">
+          <div class="forum-body">
+            {{respuesta.respuesta}}
+          </div>
+            <hr class="divisoria">
+          <div class="forum-footer">
+            <div class="forum-footer-left">
+              <a *ngIf="isLoggedIn" (click)="toggleResponderRespuestaForm(respuesta.id)" class="responder">Responder</a>
+          </div>
+          <div class="forum-footer-right">
+            {{ normalizeDate(respuesta.fecha) }}
+          </div>
+          </div>
+        
+      </div>
+
+      
+          <!-- Sub-subrespuesta -->
+          <div *ngIf="respuestasDeRespuestas[respuesta.id]" class="forum-children">
+            <div *ngFor="let respuestaDeRespuesta of respuestasDeRespuestas[respuesta.id]" class="forum-item">
+              <div class="forumbg">
+                <div class="header-respuesta">
+                  <img src='https://purecatamphetamine.github.io/country-flag-icons/3x2/{{respuestaDeRespuesta.usuario.pais}}.svg' alt="{{respuestaDeRespuesta.usuario.pais}}" class="imgBandera">
+                <a [routerLink]="['/profile/',respuestaDeRespuesta.usuario.id]" class="link">{{respuestaDeRespuesta.usuario.username }}</a>
+                </div>
+              
+              <hr class="divisoria">
+              <div class="forum-body">
+                {{respuestaDeRespuesta.respuesta}}
+              </div>
+              <hr class="divisoria">
+              <div class="forum-footer-rr">
+                {{normalizeDate(respuestaDeRespuesta.fecha)}}
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <!-- Formulario para responder a una respuesta -->
+      <app-responder-respuesta *ngIf="showResponderRespuestaForm && respuestaPadreId === respuesta.id" [respuestaPadre]="respuesta" (respuestaAgregada)="onResponderAgregada()"></app-responder-respuesta>
+        </div>
+      </div>
+    <!-- Formulario para responder al tópico -->
+  <app-responder-topico *ngIf="showResponderForm && topico" [topico]="topico" (respuestaAgregada)="onResponderAgregada()"></app-responder-topico>
+    </div>
+  
+
+  </div>
+  <ng-template #error>
+    <div *ngIf="pageNotFound">
+      
+        <div class="errorContainer">
+          <p class="errorTitle">Page Not Found</p>
+          <p class="errorText">The page you are looking for does not exist.</p>
+        </div>
+     
+    </div>
+  </ng-template>  

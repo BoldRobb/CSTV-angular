@@ -1,0 +1,157 @@
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.spinner {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #212C39;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  width: 100%;
+}
+.recentActivity {
+  display: flex;
+  margin-top: 2rem;
+  margin-left: 10%;
+}
+
+.teambg{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #182234;
+  display: flex;
+  margin-left: auto;
+  width: 60rem;
+  margin-right: 5%;
+}
+.teamHolder{
+  margin-top: 10px;
+  background-color: #303D57;
+  padding: 10px;
+  width: 100%;
+  margin-bottom:2rem;
+}
+.jugadores-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.jugador {
+  text-align: center;
+}
+
+.jugador-foto {
+  width: 150px;
+  height: 150px;
+  border-radius: 20%;
+  object-fit: cover;
+}
+
+.jugador-link {
+  display: block;
+  margin-top: 0.5rem;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.jugador-link:hover {
+  color: #979797;
+  text-decoration: none;
+}
+.team-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.team-info-left{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 50%;
+
+}
+.team-info-right{
+  text-align: center;
+  width: 50%;
+}
+.equipo-foto{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin: 0 1rem;
+}
+.team-info-title{
+  color: #979797;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+.team-info-social {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.team-info-social-link {
+  margin: 0 0.5rem;
+}
+.social-icon{
+  width: 50px;
+  height: 50px;
+}
+.nav-table {
+  width: 100%;
+  height: 3rem;
+  border-collapse: collapse;
+  background-color: #303D57;
+  
+  border: 2px solid #979797;
+}
+
+.nav-table td {
+  text-align: center;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #979797;
+  
+}
+
+.nav-table td:hover{
+
+  background-color: rgb(26, 35, 53);
+}
+.nav-table a {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: white;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-table a:hover {
+  background-color: rgb(26, 35, 53);
+  cursor: pointer;
+}

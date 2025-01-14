@@ -1,0 +1,72 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    width: 100%;
+}
+.forums-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #182234;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    width: 60rem;
+    margin-right: 4%;
+}
+.recentActivity {
+    display: flex;
+    margin-top: 2rem;
+    margin-left: 10%;
+}
+.holder1 {
+    margin-top: 10px;
+    background-color: #303D57;
+    padding: 10px;
+    width: 55rem;
+    margin-bottom:2rem;
+}
+h1{
+    color: white;
+    margin: 0 0 0 1rem;
+}
+hr{
+    border: 2px solid White;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.tablaForos {
+    width: 95%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+.elementosTabla{
+    width: 100%;
+    padding: 0.5rem;
+}
+.linkForos{
+color: white;
+text-decoration: none;
+font-size: 32px;
+margin: 0;
+margin-left: 2rem;
+}
+.linkForos:hover{
+    color: #1B68DD;
+}
+.descForos{
+    margin: 0;
+    color: #9A9797;
+    font-size: 16px;
+    margin-left: 2rem;
+    margin-bottom: 5px;
+}
+.reglas{
+    font-size: 24px;
+    color: #9A9797;
+}

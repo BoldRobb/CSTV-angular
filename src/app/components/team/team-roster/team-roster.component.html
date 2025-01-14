@@ -1,0 +1,38 @@
+<h2>Current roster</h2>
+<hr>
+
+<div class="roster-table">
+  <div class="roster-header">
+    <div class="roster-header-photo">
+      <p>Photo</p>
+    </div>
+    <div class="roster-header-left">
+      <p>Player</p>
+    </div>
+    <div class="roster-header-middle">
+      <p>Stats</p>
+    </div>
+    <div class="roster-header-right">
+      <p>Status</p>
+    </div>
+  </div>
+  <div class="roster-content">
+    <div *ngIf="jugadores.length === 0">
+      <p>No roster available</p>
+    </div>
+    <div *ngFor="let jugador of jugadores" class="roster-row">
+      <div class="roster-row-photo">
+        <img [src]="jugador.foto" [alt]="jugador.mote" class="roster-photo">
+      </div>
+      <div class="roster-row-left">
+        <a [routerLink]="['/player/', jugador.id]" class="roster-link">{{jugador.nombreReal}} "{{ jugador.mote }}"</a>
+      </div>
+      <div class="roster-row-middle">
+        <p>KD: {{getKDpromedio(jugador.id)}}</p>
+      </div>
+      <div class="roster-row-right">
+        <p>{{ jugador.estatus }}</p>
+      </div>
+    </div>
+  </div>
+</div>

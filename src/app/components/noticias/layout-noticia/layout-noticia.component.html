@@ -1,0 +1,18 @@
+<div class="grid-container">
+
+        <div class="noticiasHome">
+            <app-noticia-principal></app-noticia-principal>
+        </div>
+    
+    <div class="recentActivity">
+        <app-recent-activity></app-recent-activity>
+    </div>
+</div>
+<div *ngIf="isOrganizer">
+    <button (click)="crearTorneo()">Crear Torneo</button>
+    <button (click)="crearEquipo()">Crear Equipo</button>
+    <button (click)="crearJugador()">Crear Jugador</button>
+</div>
+<div *ngIf="isReportero">
+    <button (click)="crearNoticia()">Crear Noticia</button>
+</div>

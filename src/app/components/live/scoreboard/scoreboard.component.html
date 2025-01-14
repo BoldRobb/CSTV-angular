@@ -1,0 +1,45 @@
+<div class="layout">
+<div *ngIf="gameState" class="scoreboard">
+    <h2>Scoreboard</h2>
+    
+    <div class="team">
+      <h3>Counter-Terrorist Team - Score: {{ gameState.map.team_ct.score }}</h3>
+      <table>
+        <tr>
+          <th>Jugador</th>
+          <th>Kills</th>
+          <th>Assists</th>
+          <th>Deaths</th>
+          <th>Equip Value</th>
+        </tr>
+        <tr *ngFor="let player of ctPlayers">
+          <td>{{ player.name }}</td>
+          <td>{{ player.match_stats.kills }}</td>
+          <td>{{ player.match_stats.assists }}</td>
+          <td>{{ player.match_stats.deaths }}</td>
+          <td>{{ player.state.equip_value }}</td>
+        </tr>
+      </table>
+    </div>
+  
+    <div class="team">
+      <h3>Terrorist Team - Score: {{ gameState.map.team_t.score }}</h3>
+      <table>
+        <tr>
+          <th>Jugador</th>
+          <th>Kills</th>
+          <th>Assists</th>
+          <th>Deaths</th>
+          <th>Equip Value</th>
+        </tr>
+        <tr *ngFor="let player of tPlayers">
+          <td>{{ player.name }}</td>
+          <td>{{ player.match_stats.kills }}</td>
+          <td>{{ player.match_stats.assists }}</td>
+          <td>{{ player.match_stats.deaths }}</td>
+          <td>{{ player.state.equip_value }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

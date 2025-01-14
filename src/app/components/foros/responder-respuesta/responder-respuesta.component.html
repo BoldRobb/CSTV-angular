@@ -1,0 +1,17 @@
+<app-alert [message]="alertMessage" [type]="alertType"></app-alert>
+<div class="forum-children">
+<div *ngIf="isLoggedIn" class="responder-form">
+    <form [formGroup]="responderForm" (ngSubmit)="onSubmitResponder()">
+      <div class="form-group">
+        <label for="respuesta">Reply</label>
+        <textarea id="respuesta" formControlName="respuesta" placeholder="Place your answer here"></textarea>
+      </div>
+      <div class="form-actions">
+        <div [ngClass]="{'char-counter': true, 'char-counter-exceed': responderForm.get('respuesta')?.value?.length > 255}">
+          {{ responderForm.get('respuesta')?.value?.length || 0 }} / 255 characters
+      </div>
+      <button type="submit" [disabled]="responderForm.invalid">Send reply</button>
+    </div>
+    </form>
+  </div>
+</div>

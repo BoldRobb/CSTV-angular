@@ -1,0 +1,18 @@
+<div class="panel-container">
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li *ngFor="let route of visibleRoutes" class="nav-item">
+          <a [routerLink]="route.path">{{ route.label }}</a>
+        </li>
+        <li *ngIf="collapsedRoutes.length > 0" class="nav-item dropdown">
+          
+          <ul class="dropdown-menu" [class.show]="dropdownOpen">
+            <li *ngFor="let route of collapsedRoutes" class="dropdown-item">
+              <a [routerLink]="route.path">{{ route.label }}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <router-outlet></router-outlet>
+  </div>

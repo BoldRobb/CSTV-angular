@@ -1,0 +1,76 @@
+<app-alert [message]="alertMessage" [type]="alertType"></app-alert>
+<div class="equipo-form">
+  <h1>{{ isEditing ? 'Editar Equipo' : 'Agregar Nuevo Equipo' }}</h1>
+  <div class="button-group">
+    <button (click)="showAddForm()">Agregar</button>
+    <button (click)="showEditForm()">Editar</button>
+    <button *ngIf="isEditing && currentEquipo" (click)="deleteEquipo()">Eliminar</button>
+  </div>
+  <div *ngIf="showForm">
+    <form [formGroup]="equipoForm" (ngSubmit)="onSubmit()" class="form-grid">
+      <div class="form-column">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" formControlName="nombre" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="rankingActual">Ranking Actual:</label>
+          <input type="number" id="rankingActual" formControlName="rankingActual" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="rankingMaximo">Ranking Máximo:</label>
+          <input type="number" id="rankingMaximo" formControlName="rankingMaximo" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="twitter">Twitter:</label>
+          <input type="text" id="twitter" formControlName="twitter" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="instagram">Instagram:</label>
+          <input type="text" id="instagram" formControlName="instagram" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="foto">Foto:</label>
+          <input type="text" id="foto" formControlName="foto" class="form-control">
+          <button type="submit" class="btn btn-primary">{{ isEditing ? 'Actualizar' : 'Guardar' }}</button>
+        </div>
+      </div>
+      <div class="form-column" *ngIf="isEditing">
+        <div class="form-group">
+          <label for="jugadores">Jugadores:</label>
+          <ul>
+            <li *ngFor="let jugador of jugadores">
+              {{ jugador.nombreReal }} ({{ jugador.mote }})
+              <button (click)="removeJugador(jugador.id)">Eliminar</button>
+            </li>
+          </ul>
+        </div>
+        <div class="form-group">
+          <label for="searchJugador">Buscar Jugador por Nombre:</label>
+          <input type="text" id="searchJugador" formControlName="searchJugadorQuery" (input)="searchJugadores()" class="form-control">
+        </div>
+        <ul *ngIf="searchJugadorResults.length > 0">
+          <li *ngFor="let jugador of searchJugadorResults" (click)="addJugador(jugador)">
+            {{ jugador.nombreReal }} ({{ jugador.mote }})
+          </li>
+        </ul>
+        <p *ngIf="searchJugadorResults.length === 0 && equipoForm.get('searchJugadorQuery')?.value">No se encontraron resultados</p>
+      </div>
+      
+    </form>
+  </div>
+  <div *ngIf="isEditing && !showForm">
+    <form [formGroup]="equipoForm">
+      <div class="form-group">
+        <label for="search">Buscar Equipo por Nombre:</label>
+        <input type="text" id="search" formControlName="searchQuery" (input)="searchEquipos()" class="form-control">
+      </div>
+      <ul *ngIf="searchResults.length > 0">
+        <li *ngFor="let equipo of searchResults" (click)="selectEquipo(equipo)">
+          {{ equipo.nombre }}
+        </li>
+      </ul>
+      <p *ngIf="searchResults.length === 0 && equipoForm.get('searchQuery')?.value">No se encontraron resultados</p>
+    </form>
+  </div>
+</div>

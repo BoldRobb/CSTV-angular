@@ -1,0 +1,77 @@
+
+<div *ngIf="isLoading" class="spinner-container">
+    <div class="spinner"></div>
+  </div>
+  <div *ngIf="!isLoading && !pageNotFound; else error" class="forum-container">
+  
+    <div class="grid-container">
+  
+      <div class="playerbg">
+        <div class="playerHolder">
+          <div class="player-container">
+            <div class="player-left">
+              <img [src]="player?.foto" [alt]="player?.mote" class="player-photo">
+            </div>
+            <div class="player-right">
+              <div class="player-info">
+                <h2>{{ player?.mote }} <img src="https://purecatamphetamine.github.io/country-flag-icons/3x2/{{player?.pais}}.svg" alt="{{player?.pais}}" class="countryFlag"></h2>
+                <hr>
+                <p><strong>Full name:</strong> {{player?.nombreReal}}</p>
+                <hr>
+                <p><strong>Status:</strong> {{player?.estatus}}</p>
+                <hr>
+                <p><strong>Current team:</strong> 
+                  <a [routerLink]="['/team/', player?.equipoActual?.id]" class="player-team">
+                    <img [src]="player?.equipoActual?.foto" alt="{{player?.equipoActual?.nombre}} logo" class="team-logo">
+                    {{player?.equipoActual?.nombre}}
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <hr>
+          <table class="nav-table">
+            <tr>
+              <td><a (click)="openComponent('information')">Information</a></td>
+              <td><a (click)="openComponent('teams')">Teams</a></td>
+              <td><a (click)="openComponent('matches')">Matches</a></td>
+              <td><a (click)="openComponent('news')">News</a></td>
+            </tr>
+          </table>
+  
+          <div class="player-content">
+            <div *ngIf="currentComponent === 'information'" >
+              <app-player-information [matches]="matches" [player]="player"></app-player-information>
+            </div>
+            <div *ngIf="currentComponent === 'teams'" >
+              <app-player-teams [teamHistory]="teamHistory"></app-player-teams>
+            </div>
+            <div *ngIf="currentComponent === 'matches'" >
+              <app-player-matches [partidos]="matches"></app-player-matches>
+            </div>
+            <div *ngIf="currentComponent === 'news'" >
+              <app-player-news [noticias]="noticias"></app-player-news>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="recentActivity">
+       <app-recent-activity></app-recent-activity>
+      </div>
+  </div>
+  </div>
+  
+  
+    <ng-template #error>
+      <div *ngIf="pageNotFound">
+        
+          <div class="errorContainer">
+            <p class="errorTitle">Page Not Found</p>
+            <p class="errorText">The page you are looking for does not exist.</p>
+          </div>
+       
+      </div>
+    </ng-template>  

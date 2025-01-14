@@ -1,0 +1,97 @@
+
+<div *ngIf="isLoading" class="spinner-container">
+  <div class="spinner"></div>
+</div>
+<div *ngIf="!isLoading && !pageNotFound; else error" class="forum-container">
+
+  <div class="grid-container">
+
+    <div class="teambg">
+      <div class="teamHolder">
+        <div class="jugadores-container">
+          <div *ngFor="let jugador of jugadores.length ? jugadores : defaultPlayers   " class="jugador">
+            <img [src]="jugador.foto" [alt]="jugador.mote" class="jugador-foto">
+            <a [routerLink]="['/player/', jugador.id]" class="jugador-link">{{ jugador.mote }}</a>
+          </div>
+        </div>
+        <hr>
+        <div class="team-info">
+          <div class="team-info-left">
+            <img [src]="equipo?.foto || 'icons/help.png'" [alt]="equipo?.nombre" class="equipo-foto">
+            <a class="team-info-title">{{ equipo?.nombre }}</a>
+          </div>
+          <div class="team-info-right">
+            <p class="team-info-title">Social Media</p>
+            <div class="team-info-social">
+              <a href="{{equipo?.twitter}}" class="team-info-social-link">
+                <img src="icons/twitter.png" alt="Twitter" class="social-icon">
+              </a>
+              <a href="{{equipo?.instagram}}" class="team-info-social-link">
+                <img src="icons/instagram.png" alt="Instagram" class="social-icon">
+              </a>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="team-info">
+          <div class="team-info-left">
+            <p class="team-info-title">World Ranking</p>
+          </div>
+          <div class="team-info-right">
+            <p class="team-info-title">#{{ equipo?.rankingActual === 0 ? '?' : equipo?.rankingActual }}</p>
+          </div>
+        </div>
+        <hr>
+        <table class="nav-table">
+          <tr>
+            <td><a (click)="openComponent('information')">Information</a></td>
+            <td><a (click)="openComponent('roster')">Roster</a></td>
+            <td><a (click)="openComponent('events')">Events</a></td>
+            <td><a (click)="openComponent('matches')">Matches</a></td>
+            <td><a (click)="openComponent('results')">Results</a></td>
+            <td><a (click)="openComponent('news')">News</a></td>
+          </tr>
+        </table>
+
+        <div class="event-content">
+          <div *ngIf="currentComponent === 'information'" >
+            <app-team-information [equipo]="equipo" [ranking]="ranking" [jugadores]="jugadores"></app-team-information>
+          </div>
+          <div *ngIf="currentComponent === 'roster'">
+            <app-team-roster [jugadores]="jugadores"></app-team-roster>
+          </div>
+          <div *ngIf="currentComponent === 'events'">
+            <app-team-events [eventos]="eventos"></app-team-events>
+          </div>
+          <div *ngIf="currentComponent === 'matches'">
+            <app-team-matches [partidos]="partidos" ></app-team-matches>
+          </div>
+          <div *ngIf="currentComponent === 'results'">
+            <app-team-results [partidos]="partidos" ></app-team-results>
+          </div>
+          <div *ngIf="currentComponent === 'news'">
+            <app-team-news [noticias]="noticias"></app-team-news>
+          </div>  
+        </div>
+      </div>
+
+    </div>
+
+    
+    <div class="recentActivity">
+     <app-recent-activity></app-recent-activity>
+    </div>
+</div>
+</div>
+
+
+  <ng-template #error>
+    <div *ngIf="pageNotFound">
+      
+        <div class="errorContainer">
+          <p class="errorTitle">Page Not Found</p>
+          <p class="errorText">The page you are looking for does not exist.</p>
+        </div>
+     
+    </div>
+  </ng-template>  

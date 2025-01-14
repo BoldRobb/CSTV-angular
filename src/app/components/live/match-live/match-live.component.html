@@ -1,0 +1,143 @@
+<div *ngIf="isLoading" class="spinner-container">
+    <div class="spinner"></div>
+  </div>
+  <div *ngIf="!isLoading && !pageNotFound; else error" class="forum-container">
+    <div class="grid-container">
+      <div class="eventbg">
+        <div class="match-container">
+          <div class="header">
+            <div class="team-logo">
+              <img [src]="match?.equipo1?.foto || 'icons/help.png'" alt="{{ match?.equipo1?.nombre }} logo" />
+            </div>
+            <div class="match-info">
+                <p class="match-text">{{ match?.fecha | date:'HH:mm' }}</p>
+                <a [routerLink]="['/events/', match?.torneo?.id]">{{ match?.torneo?.nombre }}</a>
+                <p class="match-text">{{ formattedDate }}</p>
+            </div>
+            <div class="team-logo">
+              <img [src]="match?.equipo2?.foto || 'icons/help.png'" alt="{{ match?.equipo2?.nombre }} logo" />
+            </div>
+          </div>
+          <div class="teams">
+            <span>{{ match?.equipo1?.nombre }}</span>
+            <span>{{ match?.equipo2?.nombre }}</span>
+          </div>    
+        </div>
+
+        <div class="maps">
+            <h4>Maps</h4>
+            <div class="banlist-container">
+            <div class="BanlistText">
+                <ul>
+                    <li *ngFor="let ban of banList">
+                      {{ ban.mapa }} was {{ ban.estatus === 'Banned' ? 'banned' : 'picked' }}
+                    </li>
+                  </ul>
+            </div>
+            <div class="BanlistImages">
+                <div *ngFor="let ban of banList" class="mapFoto">
+                    <div class="map-container">
+                    <img [src]="'icons/' + ban.mapa + 'Banner.png'" alt="{{ ban.mapa }} banner" class="map-banner" />
+                    <span class="map-status" [ngClass]="{'banned': ban.estatus === 'Banned', 'picked': ban.estatus === 'Picked'}">
+                        {{ ban.estatus === 'Banned' ? 'banned' : 'picked' }}
+                      </span>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <h4>Results</h4>
+          
+        <div *ngFor="let mapa of mapas" class="mapaResult">
+          <div class="noseAyuda">
+          <img [src]="'icons/' + mapa.mapa + 'Banner.png'" alt="{{ mapa.mapa }} banner" class="map-result-banner" />
+          <span class="map-status" >
+            {{mapa.mapa}}
+          </span>
+        </div>
+          <div class="map-info">
+            <div class="team-info">
+              <div class="resultTextBG">
+              <img [src]="mapa.partido.equipo1.foto || 'icons/help.png'" [alt]="mapa.partido.equipo1.foto" class="result-logo"/>
+              
+              <span>{{mapa.partido.equipo1.nombre}} :</span>
+              <span [ngStyle]="{ 'color': getResult(1, mapa) === 13 ? 'green' : 'red' }">
+                 {{getResult(1, mapa)}} 
+              </span>
+              
+             (
+              <span class="izq" [ngStyle]="{ 'color': 'blue' }">{{mapa.equipo1CT}}</span>:
+              <span class="der" [ngStyle]="{ 'color': 'orange' }">{{mapa.equipo2T}}</span>) - (
+              <span class="izq" [ngStyle]="{ 'color': 'orange' }">{{mapa.equipo1T}}</span>:
+              <span class="der" [ngStyle]="{ 'color': 'blue' }">{{mapa.equipo2CT}}</span>)
+            
+            
+              
+              
+              <span [ngStyle]="{ 'color': getResult(2, mapa) === 13 ? 'green' : 'red' }">
+               {{getResult(2, mapa)}} 
+              </span>
+              <span>: {{mapa.partido.equipo2.nombre}} </span>
+              <img [src]="mapa.partido.equipo2.foto || 'icons/help.png'" [alt]="mapa.partido.equipo2.foto" class="result-logo"/>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+
+        <div class="lineupHolder">
+        <div class="team-lineup">
+            <h3>Lineup</h3>
+            <hr>
+          <div class="team-info">
+            <span>{{ match?.equipo1?.nombre }}</span>
+            <span>World rank: {{ match?.equipo1?.rankingActual }}</span>
+          </div>
+          <hr>
+          <div class="players">
+            <div *ngFor="let player of jugadores1.length ? jugadores1 : defaultPlayers" class="player">
+              <img [src]="player.foto || 'icons/defaultPlayer.png'" alt="{{ player.mote }}" class="imgPlayer" />
+              <div class="player-info">
+                <img src="https://purecatamphetamine.github.io/country-flag-icons/3x2/{{ player.pais }}.svg" alt="{{ player.pais }}" class="countryFlag">
+                <span>{{ player.mote }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="team-lineup">
+            <hr>
+          <div class="team-info">
+            <span>{{ match?.equipo2?.nombre }}</span>
+            <span>World rank: {{ match?.equipo2?.rankingActual }}</span>
+          </div>
+          <hr>
+          <div class="players">
+            <div *ngFor="let player of jugadores2.length ? jugadores2 : defaultPlayers" class="player">
+              <img [src]="player.foto || 'icons/defaultPlayer.png'" alt="{{ player.mote }}" class="imgPlayer" />
+              <div class="player-info">
+                <img src="https://purecatamphetamine.github.io/country-flag-icons/3x2/{{ player.pais }}.svg" alt="{{ player.pais }}" class="countryFlag">
+                <span>{{ player.mote }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div  class="resultHolder">
+            <app-scoreboard/>
+        </div>
+      </div>
+          
+    </div>
+  </div>
+  
+  
+    <ng-template #error>
+      <div *ngIf="pageNotFound">
+        
+          <div class="errorContainer">
+            <p class="errorTitle">Page Not Found</p>
+            <p class="errorText">The page you are looking for does not exist.</p>
+          </div>
+       
+      </div>
+    </ng-template>  

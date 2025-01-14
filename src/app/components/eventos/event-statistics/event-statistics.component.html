@@ -1,0 +1,40 @@
+<div *ngIf="!isLoading"><h2>Top Players</h2>
+<table class="stats-table">
+  <thead>
+    <tr>
+      <th>Player</th>
+      <th>Kills</th>
+      <th>Deaths</th>
+      <th>KD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let player of playersStats">
+      <td>{{ getPlayerName(player.playerId) }}</td>
+      <td>{{ player.kills }}</td>
+      <td>{{ player.deaths }}</td>
+      <td>{{ player.kd | number:'1.2-2' }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Top Teams</h2>
+<table class="stats-table">
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th>Kills</th>
+      <th>Deaths</th>
+      <th>KD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let team of equiposStats">
+      <td>{{ getTeamName(team.equipoId) }}</td>
+      <td>{{ team.kills }}</td>
+      <td>{{ team.deaths }}</td>
+      <td>{{ team.kd | number: '1.2-2' }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>

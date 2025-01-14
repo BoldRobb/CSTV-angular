@@ -1,0 +1,11 @@
+<div class="main">
+    <p class="title">Recent activity</p>
+    <div class="container">
+        <div class="topicos">
+            <div *ngFor="let topico of topicos">
+            <a  [routerLink]="['/topic', topico.id]" class="topicoTitle">{{ topico.titulo }}</a>
+            </div>
+        </div>
+            
+    </div>
+</div>

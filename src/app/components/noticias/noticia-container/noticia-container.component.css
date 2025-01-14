@@ -1,0 +1,29 @@
+.simple-container {
+    margin: 4px 10px ;
+    padding: 10px;
+    background-color: #303D57;
+    width: 60rem;
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.new-title {
+    
+    font-size: 22px;
+    color: white;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+a:hover{
+    color: #9A9797;
+}
+
+.new-time {
+    font-size: 16px;
+    color: #9A9797;
+}

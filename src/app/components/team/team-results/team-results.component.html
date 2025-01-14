@@ -1,0 +1,18 @@
+<h2>All Results</h2>
+<hr>
+<div *ngFor="let fecha of getFechasPartidos()">
+    <div class="fecha-torneo">
+      
+      <table class="partidos-table">
+        <caption class="fecha">{{ fecha }}</caption>
+        <tbody>
+          <tr *ngFor="let partido of getPartidosByFecha(fecha); let i = index" [ngStyle]="{'background-color': i % 2 === 0 ? '#1F242D' : '#212C39'}">
+            
+            <td class="hora">{{ partido.fecha | date:'HH:mm' }}</td>
+          <td class="equipos">{{ partido.equipo1.nombre }} - {{partido.marcador}} - {{ partido.equipo2.nombre }}</td>
+          <td class="ver-partido"><button (click)="verPartido(partido.id)">Ver Partido</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

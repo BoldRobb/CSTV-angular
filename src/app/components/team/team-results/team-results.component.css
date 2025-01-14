@@ -1,0 +1,63 @@
+.fecha-torneo {
+    margin-bottom: 2rem;
+  }
+  
+  .partidos-table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+  }
+  
+  .partidos-table th, .partidos-table td {
+    padding: 0.5rem;
+    text-align: left;
+    color: #979797;
+  }
+  
+  .partidos-table tr {
+    cursor: pointer;
+  }
+  .partidos-table .hora {
+    width: 10%;
+    font-size: 20px;
+  }
+  
+  .partidos-table .equipos {
+    width: 70%;
+    font-size: 32px;
+  }
+  
+  .partidos-table .ver-partido {
+    width: 20%;
+    text-align: right;
+    font-size: 20px;
+  }
+  .partidos-table tr:hover {
+    background-color: #303D57;
+  }
+  
+  button {
+    background-color: #303D57;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #1F242D;
+  }
+  h2{
+    color: #979797;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.fecha{
+    font-size: 32px;
+    font-weight: semi-bold;
+    color: #979797;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,31 @@
+<div class="grid-container">
+    <div class="forums-container">
+        <div class="holder1">
+            <h1>Main Topics</h1>
+            <hr>
+            <table class="tablaForos">
+                <tr *ngFor="let foro of foros; let i = index" [ngStyle]="{'background-color': i % 2 === 0 ? '#1F242D' : '#212C39'}">
+                    <td class="elementosTabla">
+                        <a [routerLink]="['/forum/', foro.id]" class="linkForos">{{ foro.nombre }}</a>
+                        <p class="descForos">{{ foro.descripcion }}</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="holder1">
+            <h1>Rules</h1>
+            <hr>
+            <ul class="reglas">
+                <li>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</li>
+                <li>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</li>
+                <li>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</li>
+                <li>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</li>
+            </ul>
+        </div>
+        </div>
+   
+
+<div class="recentActivity">
+    <app-recent-activity></app-recent-activity>
+</div>
+</div>

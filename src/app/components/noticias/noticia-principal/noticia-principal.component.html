@@ -1,0 +1,19 @@
+<div class="noticiasHolder">
+    <app-noticia-main></app-noticia-main>
+
+
+    <div *ngIf="noticiasHoy.length > 0">
+        <p class="noticiaTitle">Today news</p>
+        <app-noticia-container *ngFor="let noticia of noticiasHoy" [id]="noticia.id"></app-noticia-container>
+    </div>
+
+    <div *ngIf="noticiasAyer.length > 0">
+        <p class="noticiaTitle">Yesterday news</p>
+        <app-noticia-container *ngFor="let noticia of noticiasAyer" [id]="noticia.id"></app-noticia-container>
+    </div>
+
+    <div *ngIf="noticiasRestantes.length > 0">
+        <p class="noticiaTitle">Recent news</p>
+        <app-noticia-container *ngFor="let noticia of noticiasRestantes" [id]="noticia.id"></app-noticia-container>
+    </div>
+</div>

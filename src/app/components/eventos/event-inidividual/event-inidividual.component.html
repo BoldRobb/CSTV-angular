@@ -1,0 +1,72 @@
+
+<div *ngIf="isLoading" class="spinner-container">
+    <div class="spinner"></div>
+  </div>
+  <div *ngIf="!isLoading && !pageNotFound; else error" class="forum-container">
+  
+    <div class="grid-container">
+  
+      <div class="eventbg">
+        <div class="eventHolder">
+            <img class="event-logo"[src]="torneo?.logo" alt="icons/search.png">
+            <div class="event-title">{{torneo?.nombre}}</div>
+            <table class="nav-table">
+              <tr>
+                <td><a (click)="openComponent('general')">General</a></td>
+                <td><a (click)="openComponent('matches')">Matches</a></td>
+                <td><a (click)="openComponent('results')">Results</a></td>
+                <td><a (click)="openComponent('statistics')">Statistics</a></td>
+              </tr>
+            </table>
+          
+            <div class="event-info">
+              <div class="event-info-item">
+                <strong>Date: </strong> {{ torneo?.fechaInicial | date:'yyyy-MM-dd' }} to {{ torneo?.fechaFinal | date:'yyyy-MM-dd' }}
+              </div>
+              <div class="event-info-item">
+                <strong>Prize Pool: </strong> {{ torneo?.prizepool | currency }}
+              </div>
+              <div class="event-info-item">
+                <strong>Teams: </strong> {{ torneo?.equipos_cant }}
+              </div>
+              <div class="event-info-item">
+                <strong>Location: </strong> <img [src]="'https://purecatamphetamine.github.io/country-flag-icons/3x2/' + torneo?.localizacion + '.svg'" alt="{{ torneo?.localizacion }}" class="imgBandera"> {{ torneo?.localizacion }}
+              </div>
+            </div>
+            
+        </div>
+        <div class="event-content">
+          <div *ngIf="currentComponent === 'general'" >
+            <app-event-general [torneo]="torneo" [equipos]="equipos" [partidos]="partidos" [rondas]="rondas"></app-event-general>
+          </div>
+          <div *ngIf="currentComponent === 'matches'">
+            <app-event-matches [torneo]="torneo" [partidos]="partidos"></app-event-matches>
+          </div>
+          <div *ngIf="currentComponent === 'results'">
+            <app-event-results [torneo]="torneo" [partidos]="partidos"></app-event-results>
+          </div>
+          <div *ngIf="currentComponent === 'statistics'">
+            <app-event-statistics [torneo]="torneo" [equipos]="equipos" [partidos]="partidos"></app-event-statistics>
+          </div>  
+        </div>
+
+
+      </div>
+      
+      <div class="recentActivity">
+       <app-recent-activity></app-recent-activity>
+      </div>
+  </div>
+  </div>
+  
+  
+    <ng-template #error>
+      <div *ngIf="pageNotFound">
+        
+          <div class="errorContainer">
+            <p class="errorTitle">Page Not Found</p>
+            <p class="errorText">The page you are looking for does not exist.</p>
+          </div>
+       
+      </div>
+    </ng-template>  

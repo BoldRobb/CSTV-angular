@@ -1,0 +1,131 @@
+<div class="content">
+  <div *ngIf="isLoading" class="spinner-container">
+    <div class="spinner"></div>
+  </div>
+  <div *ngIf="!isLoading">
+  <h2>Teams attending</h2>
+  <div class="teams-grid">
+    <ng-container *ngIf="equipos.length; else noEquipos">
+      <div *ngFor="let equipo of getEquiposSortedByRanking()" class="team-cell">
+        <div class="ranking">{{ equipo?.idEquipo?.rankingActual || '?' }}</div>
+        <a [routerLink]="['/team', equipo?.idEquipo?.id]">
+          <img [src]="equipo?.idEquipo?.foto || 'icons/help.png'" [alt]="equipo?.idEquipo?.nombre || 'TBD'" class="team-photo">
+        </a>
+        <a [routerLink]="['/team', equipo?.idEquipo?.id]">
+          <span>{{ equipo?.idEquipo?.nombre || 'TBD' }}</span>
+        </a>
+      </div>
+    </ng-container>
+    <ng-template #noEquipos>
+      <div *ngFor="let i of [].constructor(torneo?.equipos_cant)" class="team-cell">
+        <div class="ranking">?</div>
+        <img src="icons/help.png" alt="TBD" class="team-photo">
+        <span>TBD</span>
+      </div>
+    </ng-template>
+  </div>
+
+
+
+  <h2>Tournament format</h2>
+<div *ngIf="torneo?.tipoBracket === 'Liga-SE'" >
+  <h3 class="league-standings-title">League Standings</h3>
+<table class="tablaTorneo">
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th>Wins</th>
+      <th>Losses</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let equipo of sortedEquipos">
+      <td><img [src]="equipo.logo || 'icons/help.png' " alt="{{ equipo.nombre }}">{{ equipo.nombre }}</td>
+      <td>{{ equipo.wins }}</td>
+      <td>{{ equipo.losses }}</td>
+    </tr>
+  </tbody>
+</table>
+  <h3>Bracket</h3>
+  <div class="bracket">
+    <!-- Bracket for Liga-SE -->
+    <div *ngFor="let partido of partidos">
+      <div *ngIf="partido " >
+      <div *ngIf="partido.tipo === 'PO' || partido.tipo === 'liga'">
+        <span>{{ partido.equipo1.nombre }} vs {{ partido.equipo2.nombre }}</span>
+      </div>
+
+    </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="torneo?.tipoBracket === 'SE'">
+
+  <div class="brackets-container">
+    <div class="ronda" *ngFor="let ronda of rondas">
+      <div class="rondaTitle">{{ ronda.nombre }}</div>
+      <div class="rondaimgs">
+      <div class="partido" *ngFor="let partido of getPartidosByRonda(ronda.id)">
+        <div class="equipo equipo-local" [class.ganador]="partido.idGanador === partido.equipo1">
+          <img [src]="partido.equipo1.foto || 'icons/help.png' " alt="{{ partido.equipo1.nombre }}" />
+          <span (click)="redirectToTeam(partido.equipo1.id)">{{ partido.equipo1.nombre }}</span>
+          <span class="score">{{ partido.marcador[0] }}</span>
+        </div>
+        <div class="equipo equipo-visitante" [class.ganador]="partido.idGanador === partido.equipo2">
+          <img [src]="partido.equipo2.foto || 'icons/help.png' " alt="{{ partido.equipo2.nombre }}" />
+          <span (click)="redirectToTeam(partido.equipo2.id)">{{ partido.equipo2.nombre }}</span>
+          <span class="score">{{ partido.marcador[2] }}</span>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+</div>
+
+
+  <h2>Prize Distribution</h2>
+  <div class="prize-grid">
+    <ng-container *ngIf="equipos.length; else noEquiposPrize">
+      <div *ngFor="let equipo of equipos; let i = index" class="prize-cell">
+        <div class="position">{{ formatPosition(i + 1) }}</div>
+        <div class="team">
+          <a [routerLink]="['/team', equipo?.idEquipo?.id]">
+            <img [src]="equipo?.idEquipo?.foto || 'icons/help.png'" [alt]="equipo?.idEquipo?.nombre || 'TBD'" class="team-photo">
+          </a>
+          <a [routerLink]="['/team', equipo?.idEquipo?.id]">
+            <span>{{ equipo?.idEquipo?.nombre || 'TBD' }}</span>
+          </a>
+        </div>
+        <div class="prize">{{ formatCurrency(equipo?.premio) || 'TBD' }}</div>
+      </div>
+    </ng-container>
+    <ng-template #noEquiposPrize>
+      <div *ngFor="let i of [].constructor(torneo?.equipos_cant)" class="prize-cell">
+        <div class="position">{{ formatPosition(i + 1) }}</div>
+        <div class="team">
+          <img src="icons/help.png" alt="TBD" class="team-photo">
+          <span>TBD</span>
+        </div>
+        <div class="prize">TBD</div>
+      </div>
+    </ng-template>
+  </div>
+
+  <ng-container *ngIf="noticias.length">
+    <h2>Related news</h2>
+    <table class="news-table">
+      <tbody>
+        <tr *ngFor="let noticia of noticias" (click)="navigateToNoticia(noticia.id)">
+          <td>{{ noticia.titulo }}</td>
+          <td>{{ noticia.usuario.username }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+
+  
+  </div>
+
+</div>

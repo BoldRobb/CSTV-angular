@@ -1,0 +1,40 @@
+.simple-container {
+    
+    margin: 4px 10px ;
+    padding: 10px;
+    background-color: #303D57;
+    width: 60rem;
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.event-title {
+    
+    font-size: 22px;
+    color: white;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+a:hover{
+    color: #9A9797;
+}
+.countryFlag{
+    height: 22px;
+    width: 33px;
+    border: 1px solid black;
+}
+p{
+    color: #9A9797;
+}
+.rankingNumber{
+    color: #9A9797;
+}
+.rankingPoints{
+    color: #9A9797;
+}
