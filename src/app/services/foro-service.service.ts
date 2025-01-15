@@ -10,9 +10,9 @@ import { TopicoDTO } from '../models/DTO/topicoDTO';
   providedIn: 'root'
 })
 export class ForoServiceService {
-
-  private apiUrl = 'http://localhost:8080/api/topicos';
-  private apiUrlForums = 'http://localhost:8080/api/foros'
+  
+  private apiUrl = 'https://cstv-production.up.railway.app/api/topicos';
+  private apiUrlForums = 'https://cstv-production.up.railway.app/api/foros'
 
   constructor(private http: HttpClient) { }
 

@@ -9,8 +9,8 @@ import { BanlistModel } from '../models/banlist-model';
   providedIn: 'root'
 })
 export class PartidoService {
-  private apiUrl = 'http://localhost:8080/api/partidos'; // URL de tu backend
-  private apiUrlBan = 'http://localhost:8080/api/banlist'; // URL de tu backend
+  private apiUrl = 'https://cstv-production.up.railway.app/api/partidos'; // URL de tu backend
+  private apiUrlBan = 'https://cstv-production.up.railway.app/api/banlist'; // URL de tu backend
   constructor(private http: HttpClient) { }
   getAllPartidos(): Observable<PartidoModel[]> {
     return this.http.get<PartidoModel[]>(this.apiUrl);

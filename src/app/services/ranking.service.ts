@@ -8,8 +8,8 @@ import { RankingModel } from '../models/ranking-model';
 })
 export class RankingService {
 
-  private apiUrl = 'http://localhost:8080/api/ranking'
-  private apiUrlFecha = 'http://localhost:8080/api/ranking/fecha/'
+  private apiUrl = 'https://cstv-production.up.railway.app/api/ranking'
+  private apiUrlFecha = 'https://cstv-production.up.railway.app/api/ranking/fecha/'
   constructor(private http: HttpClient) { }
 
   getRankingToday(): Observable<RankingModel[]>{

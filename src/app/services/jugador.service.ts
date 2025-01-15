@@ -10,9 +10,9 @@ import { JugadorTeamlistDTO } from '../models/DTO/jugadorTeamlistDTO';
   providedIn: 'root'
 })
 export class JugadorService {
-  private apiUrl = 'http://localhost:8080/api/jugadores'; 
-  private apiUrlTrofeos = 'http://localhost:8080/api/jugador-trofeos';
-  private apiUrlTeamlist = 'http://localhost:8080/api/jugador-teamlist';
+  private apiUrl = 'https://cstv-production.up.railway.app/api/jugadores'; 
+  private apiUrlTrofeos = 'https://cstv-production.up.railway.app/api/jugador-trofeos';
+  private apiUrlTeamlist = 'https://cstv-production.up.railway.app/api/jugador-teamlist';
 
   constructor(private http: HttpClient) { }
 

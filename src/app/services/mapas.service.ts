@@ -8,8 +8,8 @@ import { MapaStatsModel } from '../models/mapa-stats-model';
   providedIn: 'root'
 })
 export class MapasService {
-  private apiUrl = 'http://localhost:8080/api/mapas';
-  private apiUrlStats = 'http://localhost:8080/api/mapas-stats'
+  private apiUrl = 'https://cstv-production.up.railway.app/api/mapas';
+  private apiUrlStats = 'https://cstv-production.up.railway.app/api/mapas-stats'
   constructor(private http: HttpClient) { }
 
   getAllMapas(): Observable<MapaModel[]> {

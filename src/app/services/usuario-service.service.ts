@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class UsuarioService {
 
-  private apiUrl = 'http://localhost:8080/api/usuarios'; // URL de tu backend
+  private apiUrl = 'https://cstv-production.up.railway.app/api/usuarios'; // URL de tu backend
   constructor(private http: HttpClient) { }
   
   getUsuarios(): Observable<UsuarioModel[]> {

@@ -11,8 +11,8 @@ import { EquipoJugadorDTO } from '../models/DTO/equipoJugadorDTO';
 })
 export class EquipoService {
 
-  private apiUrl = "http://localhost:8080/api/equipos";
-  private apiUrlJugadores = "http://localhost:8080/api/equipo-jugadores"
+  private apiUrl = "https://cstv-production.up.railway.app/api/equipos";
+  private apiUrlJugadores = "https://cstv-production.up.railway.app/api/equipo-jugadores"
   constructor(private http: HttpClient) { }
 
   getEquipos(id: number): Observable<EquipoModel> {

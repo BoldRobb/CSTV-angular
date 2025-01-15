@@ -9,7 +9,7 @@ import { RespuestaDTO } from '../models/DTO/respuestaDTO';
 })
 export class RespuestaServiceService {
 
-  private apiUrl = 'http://localhost:8080/api/respuestas';
+  private apiUrl = 'https://cstv-production.up.railway.app/api/respuestas';
   constructor(private http: HttpClient) { }
 
   addRespuesta(respuesta: RespuestaDTO) {

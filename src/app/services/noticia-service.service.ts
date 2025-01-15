@@ -10,8 +10,8 @@ import { NoticiaDTO } from '../models/DTO/noticiaDTO';
 })
 export class NoticiaService {
 
-  private apiUrl = 'http://localhost:8080/api/noticias'; // URL de tu backend
-  private apiUrlMain = 'http://localhost:8080/api/noticiaMain'; // URL de tu backend
+  private apiUrl = 'https://cstv-production.up.railway.app/api/noticias'; // URL de tu backend
+  private apiUrlMain = 'https://cstv-production.up.railway.app/api/noticiaMain'; // URL de tu backend
   constructor(private http: HttpClient) { }
 
   addNoticia(noticia: NoticiaDTO): Observable<NoticiaModel> {

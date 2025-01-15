@@ -12,10 +12,10 @@ import { TorneoEquiposDTO } from '../models/DTO/torneoEquipoDTO';
 })
 export class TorneoService {
 
-  private apiUrl = 'http://localhost:8080/api/torneos'
-  private apiUrlMain = 'http://localhost:8080/api/torneoMain'
-  private apiUrlEquipos = 'http://localhost:8080/api/torneo-equipos'
-  private apiUrlRonda = 'http://localhost:8080/api/ronda'
+  private apiUrl = 'https://cstv-production.up.railway.app/api/torneos'
+  private apiUrlMain = 'https://cstv-production.up.railway.app/api/torneoMain'
+  private apiUrlEquipos = 'https://cstv-production.up.railway.app/api/torneo-equipos'
+  private apiUrlRonda = 'https://cstv-production.up.railway.app/api/ronda'
   constructor(private http: HttpClient) { }
   
   addTorneo(torneo: TorneoModel): Observable<TorneoModel> {
